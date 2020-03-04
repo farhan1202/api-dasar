@@ -12,4 +12,9 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::apiResource('/person', 'PersonController');
+Route::prefix('v1')->group(function(){
+    Route::apiResource('/person', 'Api\v1\PersonController');
+});
+Route::prefix('v2')->group(function(){
+    Route::apiResource('/person', 'Api\v2\PersonController');
+});
